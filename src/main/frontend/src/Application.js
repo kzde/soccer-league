@@ -23,8 +23,8 @@ const SoccerAppWrapper = styled.div`
 
 const StyledAppBar = styled(AppBar)`
   && {
+    position: fixed;
     background-color: ${green[900]};
-    margin-bottom: 50px;
     a {
       color: white;
       text-decoration: none;
@@ -48,6 +48,10 @@ const StyledAppBar = styled(AppBar)`
 `;
 
 const Content = styled.div`
+  position: absolute;
+  top: 110px;
+  left: 0;
+  right: 0;
   width: 80%;
   margin: 0 auto;
   ${media.phone`width: 95%;`}
