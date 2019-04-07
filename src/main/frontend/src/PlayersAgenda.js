@@ -138,16 +138,16 @@ const PlayersAgenda = ({ matchType }) => {
               return (
                 <MatchDate key={`header-${matchDate.date}`}>
                   {matchDate.date}
-                  <Badge canBePlanned={matchDate.canBePlanned}>
+                  <Badge data-test="number-of-players" canBePlanned={matchDate.canBePlanned}>
                     {matchDate.presents.length}
                   </Badge>
                 </MatchDate>
               );
             })}
           </PlanningHeader>
-          {players.map(player => {
+          {players.map((player, index) => {
             return (
-              <PlayerLine
+              <PlayerLine data-test="player-line"
                 key={`playerLine-${player.name}`}
                 column={matchDates.length}
               >
@@ -158,6 +158,7 @@ const PlayersAgenda = ({ matchType }) => {
                     <span key={`checkbox-${matchDate.date}-${player.name}`}>
                       <Checkbox
                         type="checkbox"
+                        data-test={`${index}-input`}
                         checked={matchDate.presents.includes(player.name)}
                         onChange={(evt, checked) =>
                           handleOnCheck(matchDate.date, player.name, checked)

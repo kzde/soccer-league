@@ -83,13 +83,13 @@ const ScheduleMatch = ({ matchType }) => {
   return (
     <Fragment>
       {scheduledMatches.length > 0 && (
-        <MatchWithPlayer>
+        <MatchWithPlayer data-test="next-matches">
           <Title>Next {matchType} matches</Title>
           {scheduledMatches.map(match => (
             <div key={`match-${match.date}`}>
               <h4>{moment(match.date).format("dddd YYYY/MM/DD")}</h4>
               {match.players.map(player => (
-                <Player key={`player-${player}`}>
+                <Player key={`player-${player}`} data-test="player">
                   <span>{player}</span>
                   <span>
                     {match.subs.length !== 0 && match.hasMinimumPlayer && (
@@ -109,7 +109,7 @@ const ScheduleMatch = ({ matchType }) => {
         </MatchWithPlayer>
       )}
       {matchesList.length > 0 && (
-        <MatchToBePlanned>
+        <MatchToBePlanned data-test="matches-to-plan">
           <Title>Matches to plan</Title>
           {matchesList.map(match => (
             <div key={match.date}>
